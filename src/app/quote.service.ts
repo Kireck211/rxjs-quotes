@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 
 export interface Quote {
   author: string;
@@ -11,7 +11,6 @@ export interface Quote {
   providedIn: 'root'
 })
 export class QuoteService {
-
   constructor(private readonly http: HttpClient) { }
 
   getQuote(): Observable<Quote> {

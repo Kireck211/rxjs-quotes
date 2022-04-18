@@ -1,9 +1,4 @@
 <div class="container">
-  <h1>Famous quotes <span class="subtitle"> ● Refresh All</span></h1>
-  <app-quote (refresh)="onRefresh()" content="The universe is transformation; our life is what our thoughts make it"
-    author="Marcus Aurelius"></app-quote>
-  <app-quote (refresh)="onRefresh()" content="The universe is transformation; our life is what our thoughts make it"
-    author="Marcus Aurelius"></app-quote>
-  <app-quote (refresh)="onRefresh()" content="The universe is transformation; our life is what our thoughts make it"
-    author="Marcus Aurelius"></app-quote>
+  <h1>Famous quotes <span class="subtitle" (click)="onRefreshAll()"> ● Refresh All</span></h1>
+  <app-quote *ngFor="let quote of quotes" [content]="quote.content" [author]="quote.author"></app-quote>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { forkJoin } from 'rxjs';
+import { forkJoin, map, Subject, switchMap } from 'rxjs';
 import { QuoteService, Quote } from './quote.service';
 
 @Component({
@@ -8,20 +8,29 @@ import { QuoteService, Quote } from './quote.service';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent implements OnInit {
-  title = 'rxjs-exercise';
+  quotes: Quote[] = []
+  refreshAll$ = new Subject();
 
-  constructor(private readonly quoteService: QuoteService) { }
+  constructor(readonly quoteService: QuoteService) { }
+
+  ngOnInit(): void {
+    this.refreshAll$.pipe(
+      switchMap(() => {
+        return forkJoin([this.quoteService.getQuote(), this.quoteService.getQuote(), this.quoteService.getQuote()])
+      })
+    ).subscribe({
+      next: (quotes: Quote[]) => {
+        this.quotes = quotes;
+      }
+    })
+  }
 
   onRefresh() {
     console.log('clicked');
   }
 
-  ngOnInit(): void {
-    forkJoin([this.quoteService.getQuote(), this.quoteService.getQuote(), this.quoteService.getQuote()])
-      .subscribe({
-        next: (quotes: Quote[]) => {
-          console.log(quotes);
-        }
-      });
+  onRefreshAll() {
+    this.refreshAll$.next('');
   }
+
 }
