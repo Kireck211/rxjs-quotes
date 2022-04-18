@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'rxjs-exercise';
+
+  onRefresh() {
+    console.log('clicked');
+  }
 }

@@ -5,10 +5,12 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuoteComponent } from './quote/quote.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule,

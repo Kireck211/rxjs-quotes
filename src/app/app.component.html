@@ -1,30 +1,9 @@
 <div class="container">
   <h1>Famous quotes <span class="subtitle"> ● Refresh All</span></h1>
-  <mat-card>
-    <mat-card-content>
-      <div>
-        <mat-icon class="close">close</mat-icon>
-        The universe is transformation; our life is what our thoughts make it<mat-icon>format_quote</mat-icon>
-      </div>
-      <div class="author">- Marcus Aurelius</div>
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-content>
-      <div>
-        <mat-icon class="close">close</mat-icon>
-        Quote here <mat-icon>format_quote</mat-icon>
-      </div>
-      <div class="author">- Author here</div>
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-content>
-      <div>
-        <mat-icon class="close">close</mat-icon>
-        Quote here <mat-icon>format_quote</mat-icon>
-      </div>
-      <div class="author">- Author here</div>
-    </mat-card-content>
-  </mat-card>
+  <app-quote (refresh)="onRefresh()" content="The universe is transformation; our life is what our thoughts make it"
+    author="Marcus Aurelius"></app-quote>
+  <app-quote (refresh)="onRefresh()" content="The universe is transformation; our life is what our thoughts make it"
+    author="Marcus Aurelius"></app-quote>
+  <app-quote (refresh)="onRefresh()" content="The universe is transformation; our life is what our thoughts make it"
+    author="Marcus Aurelius"></app-quote>
 </div>
